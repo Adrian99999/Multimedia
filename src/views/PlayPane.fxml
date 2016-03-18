@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.net.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox fx:id="root" minWidth="170.0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="200.0" styleClass="MainBox" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.PlayPaneCtrl">
+   <children>
+      <HBox fx:id="hboxFichier" styleClass="SubBox">
+         <children>
+            <Label fx:id="lblFichier" text="Label" wrapText="true" />
+         </children>
+      </HBox>
+      <VBox fx:id="vboxVolume" styleClass="SubBox">
+         <children>
+            <HBox fx:id="hboxVolume" styleClass="SubBox">
+               <children>
+                  <Label fx:id="lblVolume" text="Volume" />
+                  <Text fx:id="txtVolume" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </HBox>
+            <Slider fx:id="sldrVolume" blockIncrement="0.1" max="1.0" min="0.2" value="0.6" />
+         </children>
+      </VBox>
+      <VBox fx:id="vboxLecture" styleClass="SubBox">
+         <children>
+            <HBox fx:id="hboxLecture" styleClass="SubBox">
+               <children>
+                  <Label fx:id="lblLecture" text="Lecture" />
+                  <Text fx:id="txtLecture" strokeType="OUTSIDE" strokeWidth="0.0" />
+               </children>
+            </HBox>
+            <HBox fx:id="hboxProgres" alignment="TOP_CENTER" />
+            <GridPane alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="btnJouer" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/Play1Normal.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Jouer la musique" />
+                     </tooltip></Button>
+                  <Button fx:id="btnPause" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/player_pause.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Poser la musique" />
+                     </tooltip></Button>
+                  <Button fx:id="btnArret" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/Stop.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Arreter la musique" />
+                     </tooltip></Button>
+                  <Button disable="true" mnemonicParsing="false" prefHeight="28.0" prefWidth="42.0" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/player_start.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button disable="true" mnemonicParsing="false" prefHeight="28.0" prefWidth="42.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/player_start_right.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnBackward" mnemonicParsing="false" GridPane.halignment="CENTER">
+                     <graphic>
+                        <ImageView fx:id="imageViewLeft" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/player_play_left.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Reculer de 30 seconds" />
+                     </tooltip></Button>
+                  <Button fx:id="btnForward" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" GridPane.columnIndex="4">
+                     <graphic>
+                        <ImageView fx:id="imageViewRight" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/player_play.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Avancer de 30 seconds" />
+                     </tooltip></Button>
+                  <ProgressBar fx:id="progLecture" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="150.0" progress="0.0" GridPane.columnIndex="1" GridPane.columnSpan="3" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      <TextArea fx:id="areaMetadata" editable="false" focusTraversable="false" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="SOMETIMES" />
+   </children>
+   <stylesheets>
+      <URL value="@main.css" />
+      <URL value="@PlayPane.css" />
+   </stylesheets>
+</VBox>

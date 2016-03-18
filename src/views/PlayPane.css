@@ -1,0 +1,40 @@
+
+#areaMetadata
+{
+	-fx-font-weight : normal;
+	-fx-text-fill : #FF0B0B; 
+}
+
+#areaMetadata .content
+{
+	-fx-background-color :#99ccff;
+}
+
+#hboxProgres
+{
+	-fx-spacing:0px;
+	-fx-alignment:top-center;
+}
+
+#lblFichier
+{
+	-fx-text-fill:#ffff00;
+}
+
+
+
+.slider  
+{
+	-fx-control-inner-background: FF3333;
+	
+}
+  
+.progress-bar { 
+	-fx-box-border: goldenrod;
+	-fx-accent: #ff0000;
+}  
+
+.progress-bar > .track 
+{
+	-fx-background-color: FFff33;
+}
